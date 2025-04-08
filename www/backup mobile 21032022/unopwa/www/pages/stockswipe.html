@@ -1,0 +1,243 @@
+<!--suppress ALL -->
+<template>
+  <div class="page">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title">Smart Cube</div>
+      </div>
+    </div>
+    <div class="page-content">
+
+
+      <div class="item-link smart-select smart-select-init smartSelectedItem"
+           data-close-on-select="true" data-open-in="popup"
+           data-page-back-link-text="Done" data-searchbar="true" data-searchbar-placeholder="Item">
+        <select id = "selectedItem" name="selectedItem">
+          <option disabled selected value = "nullItem">Select item</option>
+          {{#each stocklist}}
+          <option value="{{this.stkbar}}" data-stk_vat="{{this.stk_vat}}" data-cc="{{this.stkbar_cost}}" data-stkbar_id="{{this.stkbar_id}}" tag ="{{this.stkbar_price}}">{{this.stkbar_name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+
+      <div data-effect="cube" class="swiper-container-fav swiper-init demo-swiper demo-swiper-cube">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="block">
+
+              <div class="row">
+                <div class="colswipe"><button ID= "Item1" style="background:#ffd70a" class="buttonSw">Item1</button></div>
+                <div class="colswipe"><button ID= "Item2" style="background:#d2ff01" class="buttonSw">Item2</button></div>
+                <div class="colswipe"><button ID= "Item3" style="background:#05fffa" class="buttonSw">Item3</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item4" style="background:#f4c0ff" class="buttonSw">Item4</button></div>
+                <div class="colswipe"><button ID= "Item5" style="background:#e3d7ff" class="buttonSw">Item5</button></div>
+                <div class="colswipe"><button ID= "Item6" style="background:#d3fffa" class="buttonSw">Item6</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item7" style="background:#f1ffce" class="buttonSw">Item7</button></div>
+                <div class="colswipe"><button ID= "Item8" style="background:#aff1ff" class="buttonSw">Item8</button></div>
+                <div class="colswipe"><button ID= "Item9" style="background:#d7e1ff" class="buttonSw">Item9</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item10" style="background:#f1ffce" class="buttonSw">Item10</button></div>
+                <div class="colswipe"><button ID= "Item11" style="background:#d7ffdf" class="buttonSw">Item11</button></div>
+                <div class="colswipe"><button ID= "Item12" style="background:#d7e1ff" class="buttonSw">Item12</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item13" style="background:#f1ffce" class="buttonSw">Item13</button></div>
+                <div class="colswipe"><button ID= "Item14" style="background:#daffec" class="buttonSw">Item14</button></div>
+                <div class="colswipe"><button ID= "Item15" style="background:#ffc0ff" class="buttonSw">Item15</button></div>
+              </div>
+
+            </div>
+          </div>
+          <div class="swiper-slide">
+
+            <div class="block">
+
+              <div class="row">
+                <div class="colswipe"><button ID= "Item16" style="background:#baff93" class="buttonSw">Item16</button></div>
+                <div class="colswipe"><button ID= "Item17" style="background:#b9ecff" class="buttonSw">Item17</button></div>
+                <div class="colswipe"><button ID= "Item18" style="background:#15ff9c" class="buttonSw">Item18</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item19" style="background:#2cf3ff" class="buttonSw">Item19</button></div>
+                <div class="colswipe"><button ID= "Item20" style="background:#c0fff1" class="buttonSw">Item20</button></div>
+                <div class="colswipe"><button ID= "Item21" style="background:#d3fffa" class="buttonSw">Item21</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item22" style="background:#f1ffce" class="buttonSw">Item22</button></div>
+                <div class="colswipe"><button ID= "Item23" style="background:#ffa186" class="buttonSw">Item23</button></div>
+                <div class="colswipe"><button ID= "Item24" style="background:#fbdbff" class="buttonSw">Item24</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item25" style="background:#ffd643" class="buttonSw">Item25</button></div>
+                <div class="colswipe"><button ID= "Item26" style="background:#d4ff9c" class="buttonSw">Item26</button></div>
+                <div class="colswipe"><button ID= "Item27" style="background:#ecffb4" class="buttonSw">Item27</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item28" style="background:#aff1ff" class="buttonSw">Item28</button></div>
+                <div class="colswipe"><button ID= "Item29" style="background:#daffec" class="buttonSw">Item29</button></div>
+                <div class="colswipe"><button ID= "Item30" style="background:#67fff0" class="buttonSw">Item30</button></div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="swiper-slide">
+
+            <div class="block">
+
+              <div class="row">
+                <div class="colswipe"><button ID= "Item31" style="background:#ffcbe0" class="buttonSw">Item31</button></div>
+                <div class="colswipe"><button ID= "Item32" style="background:#dcffdd" class="buttonSw">Item32</button></div>
+                <div class="colswipe"><button ID= "Item33" style="background:#aaf5ff" class="buttonSw">Item33</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item34" style="background:#ffc8f1" class="buttonSw">Item34</button></div>
+                <div class="colswipe"><button ID= "Item35" style="background:#ffe6e6" class="buttonSw">Item35</button></div>
+                <div class="colswipe"><button ID= "Item36" style="background:#ffa796" class="buttonSw">Item36</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item37" style="background:#ecff99" class="buttonSw">Item37</button></div>
+                <div class="colswipe"><button ID= "Item38" style="background:#e9ffc6" class="buttonSw">Item38</button></div>
+                <div class="colswipe"><button ID= "Item39" style="background:#ffd230" class="buttonSw">Item39</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item40" style="background:#eaeeff" class="buttonSw">Item40</button></div>
+                <div class="colswipe"><button ID= "Item41" style="background:#d4ff9c" class="buttonSw">Item41</button></div>
+                <div class="colswipe"><button ID= "Item42" style="background:#ecffb4" class="buttonSw">Item42</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item43" style="background:#b2ffb5" class="buttonSw">Item43</button></div>
+                <div class="colswipe"><button ID= "Item44" style="background:#ffacee" class="buttonSw">Item44</button></div>
+                <div class="colswipe"><button ID= "Item45" style="background:#d5ff53" class="buttonSw">Item45</button></div>
+              </div>
+
+            </div>
+
+
+
+          </div>
+          <div class="swiper-slide">
+
+            <div class="block">
+
+              <div class="row">
+                <div class="colswipe"><button ID= "Item46" style="background:#2ce9ff" class="buttonSw">Item46</button></div>
+                <div class="colswipe"><button ID= "Item47" style="background:#efff9e" class="buttonSw">Item47</button></div>
+                <div class="colswipe"><button ID= "Item48" style="background:#ffeec9" class="buttonSw">Item48</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item49" style="background:#efffb6" class="buttonSw">Item49</button></div>
+                <div class="colswipe"><button ID= "Item50" style="background:#c5d4ff" class="buttonSw">Item50</button></div>
+                <div class="colswipe"><button ID= "Item51" style="background:#fff895" class="buttonSw">Item51</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item52" style="background:#ffd03b" class="buttonSw">Item52</button></div>
+                <div class="colswipe"><button ID= "Item53" style="background:#e9ffc6" class="buttonSw">Item53</button></div>
+                <div class="colswipe"><button ID= "Item54" style="background:#c2ffc1" class="buttonSw">Item54</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item55" style="background:#f3ffba" class="buttonSw">Item55</button></div>
+                <div class="colswipe"><button ID= "Item56" style="background:#d4ff9c" class="buttonSw">Item56</button></div>
+                <div class="colswipe"><button ID= "Item57" style="background:#ecffb4" class="buttonSw">Item57</button></div>
+              </div>
+              <div class="row">
+                <div class="colswipe"><button ID= "Item58" style="background:#b2ffb5" class="buttonSw">Item58</button></div>
+                <div class="colswipe"><button ID= "Item59" style="background:#ddffc1" class="buttonSw">Item59</button></div>
+                <div class="colswipe"><button ID= "Item60" style="background:#ffe8e6" class="buttonSw">Item60</button></div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+
+    var currentbtn;
+
+    var reply_click = function()
+    {
+        //+", text"+this.innerHTML
+        //alert("Button clicked, id "+this.id);
+        //homeView.router.navigate('/stockcubeselect/' + this.id);
+        currentbtn = this.id;
+        var smartSelect = app.smartSelect.get('.smart-select');
+        smartSelect.openPopup();
+
+    }
+
+
+    var onchangeSwipItem = function()
+    {
+        //+", text"+this.innerHTML
+        //alert("Button clicked, id "+this.id);
+        //homeView.router.navigate('/stockcubeselect/' + this.id);
+        //console.log("currentbtn: " + currentbtn);
+        //console.log($$("#selectedItem").val());
+
+
+        var selectObject = document.getElementById('selectedItem');
+        var indexId = selectObject.selectedIndex;
+
+        var stkbar = $$("#selectedItem").val();
+        var stkname = selectObject.options[indexId].text;
+        var stkprice = selectObject.options[indexId].attributes['tag'].value;
+        var cost = parseFloat(selectObject.options[indexId].getAttribute("data-cc"));
+        var vat = parseFloat(selectObject.options[indexId].getAttribute("data-stk_vat"));
+        var stkbar_id  = selectObject.options[indexId].getAttribute("data-stkbar_id");
+
+
+
+      $$("#" + currentbtn).html(stkname + "&nbsp;" + stkprice);
+
+      addTocube(currentbtn, stkbar, stkname, stkprice, cost,vat,stkbar_id);
+
+    }
+
+
+
+
+
+
+    return {
+        methods: {
+
+        },
+        on: {
+            // each object key means same name event handler
+            pageMounted: function (page) {
+                // onchange="onchangeSwipItem(this)"
+                document.getElementById("selectedItem").onchange = onchangeSwipItem;
+
+                for (i = 1; i < 61; i++) {
+                    document.getElementById("Item" + i).onclick = reply_click;
+                }
+                var cubes = this.$route.context.cubelist;
+                for (var k in cubes) {
+                    //console.log(cubes[k]["buttonId"]);
+                    $$("#" + cubes[k]["buttonId"]).html(cubes[k]["smartcube"]["stkname"] + "" + cubes[k]["smartcube"]["stkbar_price"]);
+                }
+
+
+
+
+            }
+        },
+    };
+</script>

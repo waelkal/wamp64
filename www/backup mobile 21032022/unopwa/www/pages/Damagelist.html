@@ -1,0 +1,103 @@
+<!--suppress ALL -->
+<template>
+  <div class="page">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title">Damage List</div>
+      </div>
+    </div>
+     
+    <form data-search-container=".search-list" data-search-in=".item-title" class="searchbar searchbar-init">
+      <div class="searchbar-inner">
+        <div class="searchbar-input-wrap">
+          <input type="search" placeholder="Search or barcode scan">
+          <i class="searchbar-icon"></i>
+          <span class="input-clear-button"></span>
+        </div>
+        <span class="searchbar-disable-button">Cancel</span>
+      </div>
+    </form>
+   
+     
+    <div class="page-content">
+      <div class="list simple-list searchbar-not-found">
+        <ul>
+          <li>Nothing found</li>
+        </ul>
+      </div>
+      <div class="block block-strong">
+        <p class="row">
+          <a href="#" class="col button button-fill" @click="btnprint">Print</a>
+        </p>
+      </div>
+      <div class="list search-list searchbar-found">
+        <ul>
+          {{#each Damagelist}}
+          <li>
+            <!--<a href="/customerview/{{js 'return JSON.stringify(this)'}}" class="item-link item-content">-->
+            <!--<a href="#" @click="customerview('{{this}}')" class="item-link item-content">-->
+            <a href="/stockview/{{this.stkbar}}/" class="item-link item-content">
+              <div class="item-inner">
+                <div class="item-title">
+                  <!-- Item header, must be first child of item-title -->
+                  <div class="item-header"></div>
+                  {{this.stkbar_name}}
+                  {{#if this.stkbar_price}}
+                  <span class="badge color-blue">{{this.stkbar_price}}</span>
+                  {{/if}}
+                  <!-- Item footer, must be last child of item-title -->
+                  <div class="item-footer">{{this.stkbar}}</div>
+                  <div class="title">QTy</div>
+                  {{#if this.DMQTy}}
+                  <span class="badge color-blue">{{this.DMQTy}}</span>
+                  {{/if}}
+                </div>
+              </div>
+            </a>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+      <div id="DamagelistRpt" style="display:none">
+        <h4 id="Damagelist_rpt" style="text-align:left;" align="left">Damage List</h4>
+        <hr>
+        <table id="stockTable" style="text-align:left;" align="left">
+          <tr>
+            <td style="text-align:left;"><h4>Item</h4></td>
+            <td style="text-align:left;"><h4>Qty</h4></td>
+          </tr>
+          <tr>
+            <td><hr></td>
+            <td><hr></td>
+          </tr>
+
+        </table>
+        <hr>
+      
+      </div><!--End Invoice-->
+
+
+
+    </div>
+  </div>
+</template>
+<script>
+  return {
+    methods: {
+      btnprint: function () {
+        var current_stock = this.$route.context.Damagelist;
+        printDamagestock(current_stock);
+        //printJS('invoice-POS', 'html');
+      }
+    }
+  }
+ 
+</script>
+
+

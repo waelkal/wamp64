@@ -1,0 +1,102 @@
+<!--suppress ALL -->
+<template>
+  <div class="page" data-name="warehouse_view">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title">{{stock.stkbar_name}}</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block-title">Stock information</div>
+      <div class="list no-hairlines-md">
+        <ul>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">stock Code</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtstkbar" placeholder="Name" value="{{stock.stkbar}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">stock Name</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtstkbar_name" placeholder="Firm" value="{{stock.stkbar_name}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Qun_onhand</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtqun_onhand" placeholder="0" value="{{stock.qun_onhand}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Price USD</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtstkprice" placeholder="0" value="{{stock.stkbar_price}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">VAT</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtstkprice" placeholder="0" value="{{stock.stk_vat}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">stock URL</div>
+                <div class="item-input-wrap">
+                  <a class="link external" href="{{stock.stkbar_URL}}">{{stock.stkbar_URL}}</a>
+                </div>
+              </div>
+            </div>
+          </li>
+ <!--suppress ALL
+  <li>
+    <div class="item-content item-input">
+      <div class="item-inner">
+        <div class="item-title item-label">stock Guid</div>
+        <div class="item-input-wrap">
+          <input type="text" id="txtstkbar_id" placeholder="" value="{{stock.stkbar_id}}" />
+        </div>
+      </div>
+    </div>
+  </li>-->
+
+        </ul>
+      </div>
+
+
+    </div>
+  </div>
+</template>
+<script>
+  return {
+  }
+</script>
+

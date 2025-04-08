@@ -1,0 +1,129 @@
+<!--suppress ALL -->
+<template>
+  <div class="page" data-name="printtest">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title">Printer Test</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block block-strong">
+        <p class="row">
+          <a href="#" class="col button button-fill" @click="printTest">Print</a>
+        </p>
+      </div>
+      <!--<tr>
+          <td><hr></td>
+          <td><hr></td>
+          <td><hr></td>
+        </tr>-->
+      <div id="invoice-POS">
+        <center>
+          <h2>{{mysettings.CompanyName}}</h2>
+          <h4>Date: 25/05/2019</h4>
+          <div>
+            <h3>INV:001-3</h3>
+            <p>
+              Address : {{mysettings.Address}}</br>
+              Email   : {{mysettings.Email}}</br>
+              Phone   : {{mysettings.Phones}}</br>
+            </p>
+          </div>
+        </center>
+        <hr>
+        <table align="center">
+          <tr>
+            <td>Item</td>
+            <td>Qty</td>
+            <td>Total</td>
+          </tr>
+          <tr>
+            <td>Communication</td>
+            <td>5</td>
+            <td>$375.00</td>
+          </tr>
+          <tr>
+            <td>Asset Gathering</td>
+            <td>3</td>
+            <td>$225.00</td>
+          </tr>
+
+          <tr>
+            <td>Design Development</td>
+            <td>5</td>
+            <td>$375.00</td>
+          </tr>
+
+          <tr>
+            <td>Animation</td>
+            <td>20</td>
+            <td>$1500.00</td>
+          </tr>
+          <tr>
+            <td>Animation Revisions</td>
+            <td>10</td>
+            <td>$750.00</td>
+          </tr>
+          <tr>
+            <td><h5>VAT</h5></td>
+            <td></td>
+            <td><h5>$419.25</h5></td>
+          </tr>         
+          <tr>
+            <td>Total</td>
+            <td></td>
+            <td>$3,644.25</td>
+          </tr>
+        </table>
+        <hr>
+        <p>
+          {{mysettings.ReportFooter}}
+        </p>
+      </div><!--End Invoice-->
+    </div>
+  </div>
+</template>
+<script>
+
+  return {
+    data: function () {
+
+      var localsettings = {
+        Scenario: localStorage.getItem('Scenario'),
+        Server: localStorage.getItem('Server'),
+        Database: localStorage.getItem('Database'),
+        Username: localStorage.getItem('Username'),
+        Password: localStorage.getItem('Password'),
+        CurrentDBVersion: localStorage.getItem('CurrentDBVersion'), //  local indexedDB version
+        ServerDBVersion: localStorage.getItem('ServerDBVersion'), //
+        PendingUploads: localStorage.getItem('PendingUploads'), // if pending uploads exists and need to be updated
+        IsFirstTimeLoad: localStorage.getItem('IsFirstTimeLoad'),
+        whcode: localStorage.getItem('whcode'),
+        warehid: localStorage.getItem('warehid'),
+        locationcode: localStorage.getItem('locationcode'),
+        salesmanid: localStorage.getItem('salesmanid'),
+        UpdateDataToOnlineServer: localStorage.getItem('UpdateDataToOnlineServer'),
+        UpdateChecked: (localStorage.getItem('UpdateDataToOnlineServer') === "1" ? " checked " : ""),
+        CompanyName: localStorage.getItem('CompanyName'),
+        Address: localStorage.getItem('Address'),
+        Phones: localStorage.getItem('Phones'),
+        Email: localStorage.getItem('Email'),
+      };
+      //console.log(localsettings);
+      return {
+        mysettings: localsettings
+      }
+    },
+    methods: {
+      printTest: function () {
+        printJS('invoice-POS', 'html');
+      }
+    }
+  }
+</script>

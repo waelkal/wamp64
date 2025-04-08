@@ -1,0 +1,458 @@
+<!--suppress ALL -->
+<template>
+  <div class="page" data-name="settings">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="title">Settings</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block-title">Server Settings</div>
+      <div class="list no-hairlines-md">
+        <ul>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Scenarios</div>
+                <div class="item-input-wrap input-dropdown-wrap">
+                  <select placeholder="Please choose..." id="cboScenario" value="{{mysettings.Scenario}}">
+                    <option value="Scenario1">Scenario1</option>
+                    <option value="Scenario2">Scenario2</option>
+                    <option value="Scenario2">Scenario3</option>
+                    <option value="Scenario2">Scenario4</option>
+                    <option value="Scenario2">Scenario5</option>
+                    <option value="Scenario2">Scenario6</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Server Name</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtServer" placeholder="Server Name" value="{{mysettings.Server}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Database</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtDatabase" placeholder="Database Name" value="{{mysettings.Database}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">User Name</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtUsername" placeholder="User Name" value="{{mysettings.Username}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Password</div>
+                <div class="item-input-wrap">
+                  <input type="password" id="txtPassword" placeholder="Password" value="{{mysettings.Password}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Update data to online server</div>
+                <label class="toggle toggle-init color-red">
+                  <input id="chkSaveOnline" type="checkbox" {{mysettings.UpdateChecked}}>
+                  <span class="toggle-icon"></span>
+                </label>
+              </div>
+            </div>
+          </li>         
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">My Warehouse code</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtwhcode" placeholder="format 00" value="{{mysettings.whcode}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Is Replacement</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtreplacement" placeholder="format 0" value="{{mysettings.replacement}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">CashVan Name</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtCashVanName" placeholder="name" value="{{mysettings.CashVanName}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Warehouse id</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtwarehid" placeholder="" value="{{mysettings.warehid}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Damage Warehouse id</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtDwarehid" placeholder="" value="{{mysettings.Dwarehid}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Salesman id</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtsalesmanid" placeholder="" value="{{mysettings.salesmanid}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">location code</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtlocationcode" placeholder="format 000" value="{{mysettings.locationcode}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <div class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Location id</div>
+              <div class="item-input-wrap">
+                <input type="text" id="txtlocationid" placeholder="" value="{{mysettings.locationid}}" />
+              </div>
+            </div>
+          </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Get Customers By Region</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtRegion" placeholder="" value="{{mysettings.region}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Local Database Version</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtCurrentDBVersion" value="{{mysettings.CurrentDBVersion}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Server Database Version</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtServerDBVersion" value="{{mysettings.ServerDBVersion}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="block block-strong">
+        <p class="row">
+          <a href="#" class="col button button-fill" @click="ClearSettings">Clear</a>
+          <a href="#" class="col button button-fill" @click="SaveSettings">Save</a>
+
+        </p>
+
+      </div>
+
+
+    </div>
+  </div>
+</template>
+<script>
+
+  return {
+    // Component Data
+    data: function () {
+      // Must return an object
+
+      // Setting default settings .. only password
+      if (localStorage.getItem('Database') === null && localStorage.getItem('Server') === null
+          && localStorage.getItem('Username') === null )
+      {
+        //console.log("Default Settings");
+        // this the default settings
+        localStorage.setItem("Server", "unoteam.net");
+        localStorage.setItem("Database", "unoteam_mobile1");
+        localStorage.setItem("Username", "unoteam_mobuser");
+
+        if (localStorage.getItem('Password') === null) {
+          localStorage.setItem("Password", "");
+        }
+        if (localStorage.getItem('CurrentDBVersion') === null || localStorage.getItem('CurrentDBVersion') === '') {
+          localStorage.setItem("CurrentDBVersion", "1");
+        }
+        if (localStorage.getItem('ServerDBVersion') === null) {
+          localStorage.setItem("ServerDBVersion", "");
+        }
+
+        if (localStorage.getItem('PendingUploads') === null) {
+          localStorage.setItem("PendingUploads", "0");
+        }
+
+        if (localStorage.getItem('IsFirstTimeLoad') === null) {
+          localStorage.setItem("IsFirstTimeLoad", "0");
+        }
+
+        if (localStorage.getItem('whcode') === null) {
+          localStorage.setItem("whcode", "01");
+        }
+
+        if (localStorage.getItem('replacement') === null) {
+          localStorage.setItem("replacement", "0");
+        }
+
+
+        if (localStorage.getItem('CashVanName') === null) {
+          localStorage.setItem("CashVanName", "");
+        }
+
+        if (localStorage.getItem('warehid') === null) {
+          localStorage.setItem("warehid", "");
+        }
+
+        if (localStorage.getItem('Dwarehid') === null) {
+          localStorage.setItem("Dwarehid", "");
+        }
+
+        if (localStorage.getItem('locationcode') === null) {
+          localStorage.setItem("locationcode", "");
+        }
+
+        if (localStorage.getItem('locationid') === null) {
+          localStorage.setItem("locationid", "");
+        }
+
+        if (localStorage.getItem('region') === null) {
+          localStorage.setItem("region", "");
+        }
+
+
+        if (localStorage.getItem('UpdateDataToOnlineServer') === null) {
+          localStorage.setItem("UpdateDataToOnlineServer", "1");
+        }
+
+        if (localStorage.getItem('IsReplacement') === null) {
+          localStorage.setItem("IsReplacement", "0");
+        }
+
+
+
+
+
+
+      }
+
+      var localsettings = {
+        Scenario: localStorage.getItem('Scenario'),
+        Server: localStorage.getItem('Server'),
+        Database: localStorage.getItem('Database'),
+        Username: localStorage.getItem('Username'),
+        Password: localStorage.getItem('Password'),
+        CurrentDBVersion: localStorage.getItem('CurrentDBVersion'), //  local indexedDB version
+        ServerDBVersion: localStorage.getItem('ServerDBVersion'), //
+        PendingUploads: localStorage.getItem('PendingUploads'), // if pending uploads exists and need to be updated
+        IsFirstTimeLoad: localStorage.getItem('IsFirstTimeLoad'),
+        whcode: localStorage.getItem('whcode'),
+        replacement: localStorage.getItem('replacement'),
+        CashVanName: localStorage.getItem('CashVanName'),
+        warehid: localStorage.getItem('warehid'),
+        Dwarehid: localStorage.getItem('Dwarehid'),
+        locationcode: localStorage.getItem('locationcode'),
+        locationid: localStorage.getItem('locationid'),
+        salesmanid: localStorage.getItem('salesmanid'),
+        UpdateDataToOnlineServer: localStorage.getItem('UpdateDataToOnlineServer'),
+        region: localStorage.getItem('region'),
+        UpdateChecked: (localStorage.getItem('UpdateDataToOnlineServer') === "1" ? " checked " : ""),     
+      };
+
+
+
+
+      //console.log(localsettings);
+      return {
+        mysettings: localsettings
+      }
+    },
+    // Component Methods
+    methods: {
+      SaveSettings: function () {
+        var self = this;
+      
+        if ($$('#cboScenario').val() != null) {
+          localStorage.setItem("Scenario", $$('#cboScenario').val());
+        }
+
+
+        if ($$('#txtServer').val() != null) {
+          localStorage.setItem("Server", $$('#txtServer').val());
+        }
+        if ($$('#txtDatabase').val() != null) {
+          localStorage.setItem("Database", $$('#txtDatabase').val());
+        }
+
+        if ($$('#txtUsername').val() != null) {
+          localStorage.setItem("Username", $$('#txtUsername').val());
+        }
+
+        if ($$('#txtPassword').val() != null) {
+          localStorage.setItem("Password", $$('#txtPassword').val());
+        } else {
+          app.dialog.alert("You must set your password!!");
+        }
+
+        if ($$('#txtwhcode').val() != null) {
+          localStorage.setItem("whcode", $$('#txtwhcode').val());
+        }
+
+        if ($$('#txtreplacement').val() != null) {
+          localStorage.setItem("replacement", $$('#txtreplacement').val());
+        }
+
+        if ($$('#txtCashVanName').val() != null) {
+          localStorage.setItem("CashVanName", $$('#txtCashVanName').val());
+        }
+
+
+        if ($$('#txtwarehid').val() != null) {
+          localStorage.setItem("warehid", $$('#txtwarehid').val());
+        }
+
+        if ($$('#txtDwarehid').val() != null) {
+          localStorage.setItem("Dwarehid", $$('#txtDwarehid').val());
+        }
+
+
+        if ($$('#txtsalesmanid').val() != null) {
+          localStorage.setItem("salesmanid", $$('#txtsalesmanid').val());
+        }
+
+        if ($$('#txtlocationcode').val() != null) {
+          localStorage.setItem("locationcode", $$('#txtlocationcode').val());
+        }
+
+        if ($$('#txtlocationid').val() != null) {
+          localStorage.setItem("locationid", $$('#txtlocationid').val());
+        }
+
+
+        if ($$('#txtCurrentDBVersion').val() != null) {
+          localStorage.setItem("CurrentDBVersion", $$('#txtCurrentDBVersion').val());
+        }
+
+
+        if ($$('#txtRegion').val() != null) {
+          localStorage.setItem("region", $$('#txtRegion').val());
+        }
+
+       
+
+
+        app.methods.getServerSettings();
+        /*if ($$('#chkSaveOnline').prop('checked')) {
+          localStorage.setItem("UpdateDataToOnlineServer", "checked");
+        } else {
+          localStorage.setItem("UpdateDataToOnlineServer", "");
+        }
+*/
+
+
+        // Need to update the local database here
+
+        var toastBottom = app.toast.create({
+          text: 'Settings Saved. Thank you',
+          closeTimeout: 1000,
+        });
+        toastBottom.open();
+      },
+      ClearSettings: function () {
+        app.dialog.confirm('Are you sure?', function () {
+          $$('#txtServer').val("");
+          $$('#txtDatabase').val("");
+          $$('#txtUsername').val("");
+          $$('#txtPassword').val("");
+          $$('#txtwhcode').val("");
+          $$('#txtreplacement').val("");
+          $$('#txtCashVanName').val("");
+          $$('#txtwarehid').val("");
+          $$('#txtlocationcode').val("");
+          $$('#txtlocationid').val("");
+          $$('#txtDwarehid').val("");
+          $$('#txtsalesmanid').val("");
+          $$('#cboScenario').val("");
+          $$('#txtRegion').val("");
+          localStorage.removeItem("Server");
+          localStorage.removeItem("Database");
+          localStorage.removeItem("Username");
+          localStorage.removeItem("Password");
+          localStorage.removeItem("whcode");
+          localStorage.removeItem("replacement");
+          localStorage.removeItem("CashVanName");
+          localStorage.removeItem("warehid");
+          localStorage.removeItem("Dwarehid");
+          localStorage.removeItem("locationcode");
+          localStorage.removeItem("locationid");
+          localStorage.removeItem("salesmanid");
+          localStorage.removeItem("Scenario");
+          localStorage.removeItem("region");
+          var toastBottom = app.toast.create({
+            text: 'Settings Deleted. Thank you',
+            closeTimeout: 2000,
+          });
+          toastBottom.open();
+        });
+
+
+
+
+
+      },
+    },
+  }
+
+</script>

@@ -1,0 +1,205 @@
+<!--suppress ALL -->
+<template>
+    <div class="page" data-name="printSettings">
+        <div class="navbar">
+            <div class="navbar-inner sliding">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="ios-only">Back</span>
+                    </a>
+                </div>
+                <div class="title">Printer Settings</div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="block-title">Print Settings</div>
+            <div class="list no-hairlines-md">
+                <ul>
+
+                  <li>
+                    <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-title item-label">Company Logo</div>
+                        <div class="item-input-wrap">
+                          <input type="text" id="txtLogo" placeholder="Logo" value="{{mysettings.Logo}}" />
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                    <li>
+                        <div class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-label">Company Name</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" id="txtCompanyName" placeholder="Company Name" value="{{mysettings.CompanyName}}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-label">Address</div>
+                                <div class="item-input-wrap">
+                                    <textarea rows="4" cols="50" id="txtAddress" placeholder="Address" value="{{mysettings.Address}}"/></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-label">Phones</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" id="txtPhones" placeholder="Phones" value="{{mysettings.Phones}}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content item-input">
+                            <div class="item-inner">
+                              <div class="item-title item-label">VAT ID</div>
+                                <div class="item-input-wrap">
+                                    <input type="text" id="txtVATID" placeholder="VATID" value="{{mysettings.VATID}}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content item-input">
+                            <div class="item-inner">
+                                <div class="item-title item-label">Footer</div>
+                                <div class="item-input-wrap">
+                                    <textarea rows="2" cols="50" id="txtFooter" placeholder="Report Footer" value="{{mysettings.ReportFooter}}"/></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+                </ul>
+            </div>
+
+            <div class="block block-strong">
+                <p class="row">
+                    <a href="#" class="col button button-fill" @click="ClearSettings">Clear</a>
+                    <a href="#" class="col button button-fill" @click="SaveSettings">Save</a>
+
+                </p>
+
+            </div>
+
+
+        </div>
+    </div>
+</template>
+<script>
+
+  return {
+    // Component Data
+    data: function () {
+      // Must return an object
+
+      var localsettings = {
+        Scenario: localStorage.getItem('Scenario'),
+        Server: localStorage.getItem('Server'),
+        Database: localStorage.getItem('Database'),
+        Username: localStorage.getItem('Username'),
+        Password: localStorage.getItem('Password'),
+        CurrentDBVersion: localStorage.getItem('CurrentDBVersion'), //  local indexedDB version
+        ServerDBVersion: localStorage.getItem('ServerDBVersion'), //
+        PendingUploads: localStorage.getItem('PendingUploads'), // if pending uploads exists and need to be updated
+        IsFirstTimeLoad: localStorage.getItem('IsFirstTimeLoad'),
+        whcode: localStorage.getItem('whcode'),
+        warehid: localStorage.getItem('warehid'),
+        locationcode: localStorage.getItem('locationcode'),
+        salesmanid: localStorage.getItem('salesmanid'),
+        UpdateDataToOnlineServer: localStorage.getItem('UpdateDataToOnlineServer'),
+        UpdateChecked: (localStorage.getItem('UpdateDataToOnlineServer') === "1" ? " checked " : ""),
+        Logo: localStorage.getItem('Logo'),
+        CompanyName: localStorage.getItem('CompanyName'),
+        Address: localStorage.getItem('Address'),
+        Phones: localStorage.getItem('Phones'),
+        VATID: localStorage.getItem('VATID'),
+        ReportFooter: localStorage.getItem('ReportFooter'),
+      };
+
+
+
+
+      //console.log(localsettings);
+      return {
+        mysettings: localsettings
+      }
+    },
+    // Component Methods
+    methods: {
+      SaveSettings: function () {
+        var self = this;
+
+
+        if ($$('#txtLogo').val() != null) {
+          localStorage.setItem("Logo", $$('#txtLogo').val());
+        }
+        if ($$('#txtCompanyName').val() != null) {
+          localStorage.setItem("CompanyName", $$('#txtCompanyName').val());
+        }
+        if ($$('#txtAddress').val() != null) {
+          localStorage.setItem("Address", $$('#txtAddress').val());
+        }
+
+        if ($$('#txtPhones').val() != null) {
+          localStorage.setItem("Phones", $$('#txtPhones').val());
+        }
+
+
+        if ($$('#txtVATID').val() != null) {
+          localStorage.setItem("VATID", $$('#txtVATID').val());
+        }
+
+        if ($$('#txtFooter').val() != null) {
+          localStorage.setItem("ReportFooter", $$('#txtFooter').val());
+        }
+
+
+
+
+        // Need to update the local database here
+
+        var toastBottom = app.toast.create({
+          text: 'Print Settings Saved. Thank you',
+          closeTimeout: 1000,
+        });
+        toastBottom.open();
+      },
+      ClearSettings: function () {
+        app.dialog.confirm('Are you sure?', function () {
+          $$('#txtLogo').val("");
+          $$('#txtCompanyName').val("");
+          $$('#txtAddress').val("");
+          $$('#txtPhones').val("");
+          $$('#txtVATID').val("");
+          localStorage.removeItem("CompanyName");
+          localStorage.removeItem("Address");
+          localStorage.removeItem("Phones");
+          localStorage.removeItem("VATID");
+          var toastBottom = app.toast.create({
+            text: 'Print Settings Deleted. Thank you',
+            closeTimeout: 2000,
+          });
+          toastBottom.open();
+        });
+
+
+
+
+
+      },
+    },
+  }
+
+</script>

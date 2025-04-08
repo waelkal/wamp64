@@ -1,0 +1,60 @@
+<!--suppress ALL -->
+<template>
+    <div class="page" data-name="customer_view">
+        <div class="navbar">
+            <div class="navbar-inner sliding">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="ios-only">Back</span>
+                    </a>
+                </div>
+                <div class="title">My Location</div>
+            </div>
+        </div>
+        <div class="page-content">
+
+            <div id="mapfull"></div>
+
+        </div>
+    </div>
+</template>
+<script>
+
+  function errorPosition(error) {
+    if (err.PERMISSION_DENIED === error.code) {
+
+    }
+  }
+
+  var optionsPosition = {
+    enableHighAccuracy: true,
+    timeout: 10000,
+    maximumAge: 0
+  };
+
+  function showPosition(position) {
+    var flat = parseFloat(position.coords.latitude);
+    var flng = parseFloat(position.coords.longitude);
+    if (isNaN(flat) || isNaN(flng)) {
+      return;
+    }
+    var uluru = {lat: flat, lng: flng};
+    var map = new google.maps.Map(document.getElementById('mapfull'), {zoom: 15, center: uluru, zoomControl: true});
+    var marker = new google.maps.Marker({position: uluru, map: map});
+  }
+
+  return {
+    on: {
+      pageAfterIn: function(e, page) {
+        //console.log('pageAfterIn', page);
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition,errorPosition, optionsPosition);
+        }
+
+      },
+    }
+
+  }
+</script>
+

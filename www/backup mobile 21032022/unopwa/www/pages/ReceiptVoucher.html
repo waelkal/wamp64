@@ -1,0 +1,534 @@
+<!--suppress ALL -->
+<template>
+  <div class="page" data-name="ReceiptVoucher">
+
+    <!--Back button-->
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div id="lblwarehouse" tag="{{mysettings.warehid}}" class="title">{{invtype}} Wh:{{mysettings.whcode}}</div>
+      </div>
+    </div>
+
+
+    <div class="page-content">
+
+      <!--stock search sheet modal-->
+      <div id="stocksheet" class="sheet-modal stocksearch">
+        <div class="view view-init" data-url="/empty/">
+          <!-- view-main view-init   -->
+          <div class="toolbar">
+            <div class="toolbar-inner">
+              <div id="stocksheetTitleLeft" class="left">
+                <a id="cancelStocksheetTitle" class="link sheet-close" href="#">Cancel</a>
+              </div>
+              <div class="right">
+                <a id="stocksheetTitle" onclick="btnUpdate()" class="link sheet-close" href="#">Add Item</a>
+                <!--<a id = "addbutton" href="#" onclick="btnSave()" class="button button-fill sheet-close" data-sheet=".stocksearch">Add Item</a>&nbsp-->
+              </div>
+            </div>
+          </div>
+          <div class="sheet-modal-inner">
+            <div class="block">
+              <div class="list no-hairlines-md">
+                <ul>
+                  <li>
+                    <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-input-wrap">
+                          <input type="text" id="txtbarcode" onchange="onchangeBarcode()" placeholder="barcode" value="" />
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <a class="item-link smart-select smart-select-init smartSelectedItem"
+                       data-close-on-select="true" data-open-in="popup"
+                       data-page-back-link-text="Done" data-searchbar="true" data-searchbar-placeholder="Item">
+
+                      <select id="selectedItem" onchange="onchangeItem(this)" name="selectedItem">
+                        <option disabled selected value="nullItem">Select item</option>
+                        {{#each stocklist}}
+                        <option value="{{this.stkbar}}" data-cc="{{this.stkbar_cost}}" data-stkbar_id="{{this.stkbar_id}}" tag="{{this.stkbar_price}}">{{this.stkbar_name}}</option>
+                        {{/each}}
+                      </select>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title">Stock Item</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col-50">
+                        <div class="item-content item-input">
+                          <div class="item-inner">
+                            <div class="item-input-wrap">
+                              <input type="text" id="txtqty" placeholder="Qty" value="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-50">
+                        <div class="item-content item-input">
+                          <div class="item-inner">
+                            <div class="item-input-wrap">
+                              <input type="text" id="txtPrice" placeholder="Price" value="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--select customer-->
+      <div class="list no-hairlines-md">
+        <ul>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-input-wrap">
+                  <input type="text" id="txtInvoiceDescription" placeholder="Description" value="" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="block block-strong">
+              <p class="row">
+                <a href="#" class="col button button-fill" @click="btnRefresh">Refresh</a>
+              </p>
+            </div>
+          </li>
+
+     <!-- Add Region-->
+        
+          <li>
+            <a class="item-link smart-select smart-select-init" data-close-on-select="true"
+               data-page-back-link-text="Done" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="Search">
+              <select id="cbocustomer" name="customer" >
+                <option disabled selected value="nullcustomer">Select customer</option>
+                {{#each customerlist}}
+                <option value="{{this.customerid}}">{{this.acname}}</option>
+                {{/each}}
+              </select>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">Customer</div>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="data-table data-table-init card">
+        <!--<div class="card-header">
+  </div>-->
+        <div class="list">
+          <ul>
+           
+            <li class="item-content item-input">
+              <div class="item-inner">               
+                <div class="item-input-wrap">                
+                  <p>Customer balance LL :<input type="text" id="Amount" value="" readonly="readonly"> </p>              
+                </div>
+              </div>
+            </li>
+            
+          </ul>
+        </div>
+
+
+
+        <div class="block block-strong">
+          <p class="row">
+            <!--@click="SaveSettings"-->
+            <a href="#" id="buttonSave" class="col button button-fill" @click="btnSave(0)">Save</a>
+            <a href="#" id="buttonSaveAndPrint" class="col button button-fill color-green" @click="btnSave(1)">Save & Print</a>
+            <a href="#" id="buttonPrint" class="col button button-fill color-blue" @click="btnPrint()">Print</a>
+          </p>
+
+        </div>
+    
+        <div id="invoicePOS" style="display:none">
+          <!--Client  : {{$$("#cbocustomer").val()}}-->
+          <center>
+            <h2>{{mysettings.CompanyName}}</h2>
+            <div>
+              <p>
+                VATID   : {{mysettings.VATID}}</br>
+                Address : {{mysettings.Address}}</br>
+                Email   : {{mysettings.Email}}</br>
+                Phone   : {{mysettings.Phones}}</br>
+              </p>
+            </div>
+
+            <h3><input type="text" id="Print_InvNumber" placeholder="" value="" /></h3>
+            <h4><input type="text" id="Print_Date" placeholder="" value="" /></h4>
+            <h4>client :<input type="text" id="clientID" value="client" /></h4></br>
+            <!--<input type="text" id="amount" value="amount" />Amount LBP</br>-->
+          </center>
+         
+          <table id="invoiceTable" style="text-align:center;" align="center">
+            <tr>                        
+              <td style="text-align:right;"></td>
+            </tr>
+            <tr>
+              <td><hr></td>           
+            </tr>
+          </table>
+         
+          <p>{{mysettings.ReportFooter}}</p>
+        </div><!--End Invoice <td style="text-align:center;"><h4>Price</h4></td> -->
+      </div>
+
+      <!--<div class="list search-list searchbar-found">
+        <ul>
+          {{#each invparentlist}}
+          <li id="{{this.PK_key}}" class="swipeout">
+            <div class="swipeout-content">
+              <!--<a href="/customerview/{{js 'return JSON.stringify(this)'}}" class="item-link item-content">-->
+              <!--<a href="#" @click="customerview('{{this}}')" class="item-link item-content">-->
+              <a href="/editsalesinvoice/{{this.PK_key}}/" class="item-link item-content">
+                <div class="item-inner">
+                  <div class="item-title">
+                    <span class="badge color-green">{{this.PK_key}}</span> {{this.inv_edate}}
+                    <!-- Item header, must be first child of item-title -->
+                    {{this.client_name}}
+                    <!-- Item footer, must be last child of item-title -->
+                    <div class="item-footer">
+                      <div class="chip">
+                        <div class="chip-label">{{this.inv_type}}</div>
+                      </div>
+
+                      {{#if this.IsUploaded}}
+                      <span class="badge color-blue">online</span>
+                      {{else}}
+                      <span class="badge color-red">offline</span>
+                      {{/if}}
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+
+          </li>
+          {{/each}}
+        </ul>
+      </div>-->
+
+
+
+
+    </div>
+</template>
+<script>
+
+  var flat = 0;
+  var flng = 0;
+  var allcustomerlist = [];
+
+  function errorPosition(error) {
+    if (err.PERMISSION_DENIED === error.code) {
+
+    }
+  }
+
+  var optionsPosition = {
+    enableHighAccuracy: true,
+    timeout: 10000,
+    maximumAge: 0
+  };
+
+  function showPosition(position) {
+    flat = parseFloat(position.coords.latitude);
+    flng = parseFloat(position.coords.longitude);
+
+  }
+
+
+  return {
+    data: function () {
+      var localsettings = {
+        whcode: localStorage.getItem("whcode"),
+        warehid: localStorage.getItem("warehid"),
+        CompanyName: localStorage.getItem('CompanyName'),
+        Address: localStorage.getItem('Address'),
+        Phones: localStorage.getItem('Phones'),
+        Email: localStorage.getItem('Email'),
+        ReportFooter: localStorage.getItem('ReportFooter'),
+      };
+      return {
+        mysettings: localsettings
+      }
+
+    },
+    methods: {
+      btnSave: function (isPrint) {
+        // Set Pending Uploads to true
+
+        if (localStorage.getItem("warehid") == null || localStorage.getItem("warehid").length != 36) {
+          app.dialog.alert("Invalid warehouse id!!");
+          return false;
+        }
+
+
+        if (localStorage.getItem("Scenario") == null) {
+          app.dialog.alert("Invalid Scenario!");
+          return false;
+        } else {
+          if (localStorage.getItem("Scenario") == 'Scenario1' && localStorage.getItem("salesmanid") == null) {
+            app.dialog.alert("Invalid salesman id for Scenario1!");
+            return false;
+          }
+        }
+
+
+        const currentCustomer = $$("#cbocustomer").val();
+        if (currentCustomer === "nullcustomer") {
+          app.dialog.alert("please select customer!!");
+          return false;
+        }
+        const currentamount = $$("#Amount").val();
+        if ($$('#Amount').val() == '') {
+          app.dialog.alert("Please fill Amount field!!");
+          return false;
+        }
+
+        // Create temp JV
+        var current_JV = refreshVoucherTotal(this.$route.context.invtype, currentamount);
+
+        var mainKey = current_JV[0]["inp_id"];
+
+        const isEdit = this.$route.context.isEditJV;
+        const dbPromise = idb.open('unodbmobile', localStorage.getItem('CurrentDBVersion'));
+        var retval = "";
+
+        //console.log("saving invoice when edit");
+        if (isEdit === true) {
+          const JVKey = parseFloat(this.$route.context.JVKey);
+          SaveEditedJV(JVKey, current_JV); // Sending int PK with the current invoice (parent & Details)
+        } else {
+          // For Add new invoice
+          dbPromise.then(db => {
+            const tx = db.transaction('ReceiptVouchers', 'readwrite');
+            const request = tx.objectStore('ReceiptVouchers').add(current_JV);
+            request.then(mainId => {
+              //console.log("mainId: " + mainId);
+              localStorage.setItem("PendingUploads", "1"); // set it to true before upload
+              if (localStorage.getItem("UpdateDataToOnlineServer") === "1") {
+                saveJVOnline(mainId, current_JV);
+              }
+              if (isPrint === 1) {
+                printJV(mainId, current_JV);
+              }
+              clearInvoice(0); //verbose 0 = no confirmation message
+            })
+          });
+        }
+
+      },
+      btnPrint: function () {
+        var current_JV = receipt_parent_line(this.$route.context.invtype);
+        const JVKey = parseFloat(this.$route.context.invoiceKey);
+        printInvoice(JVKey, current_JV);
+        $$("#buttonPrint").remove(); // remove print so that we don't have multiple rows
+      },
+      btnRefresh: function () {       
+        var Amount = 0;
+        var invparentlist = this.$route.context.invparentlist;
+        var customer_id = $$("#cbocustomer").val();
+        if (customer_id != null) {
+          Amount = getcustomerbalance(customer_id, invparentlist);
+
+          $$("#Amount").val(Amount);
+        
+          //document.getElementById("txtPrice").value = Amount.toString;
+        } 
+       
+      }
+    },
+    
+    on: {
+      // each object key means same name event handler
+      pageMounted: function (page) {
+        invline = 0;
+        var $$ = Dom7;
+        invoicetype = this.$route.context.invtype; //$route.context.invtype;   app.currentRoute.context.invtype
+
+        var IsUploaded;
+        // check if this an edited invoice
+        //console.log($$(".smartSelectedItem"));
+        //console.log($$(".smartSelectedItem").attr("data-close-on-select"));
+
+
+        if (localStorage.getItem('EnableGPSTracking') === '1' && navigator.geolocation) {
+          //console.log("GPS is on");
+          navigator.geolocation.getCurrentPosition(showPosition, errorPosition, optionsPosition);
+        }
+
+        const isEdit = this.$route.context.isEditInvoice;
+        if (isEdit === true) {
+          // adding invoice lines
+          const invdet = this.$route.context.invoicelist;
+          var ic = 0;
+          for (var ln in invdet) {
+            if (ic > 0) {
+              //console.log(invdet[ln]['inc_qty']);
+              var itemlink = "<a id = \"editbutton\" href=\"#\" " +
+                "onclick=\"editItem('" + invdet[ln]['stkbar'] + "'," + invdet[ln]['inc_qty'] + "," + invdet[ln]['inc_price'] + "," + invdet[ln]['inc_cost'] + "," + invline + ")\" class=\"link sheet-open\" data-sheet=\".stocksearch\">" + invdet[ln]['item'] + "</a>";
+              var total = invdet[ln]['inc_qty'] * invdet[ln]['inc_price'];
+
+              var rowHTML = "<tr id=\"row" + invline + "\">\n" +
+                " <td id=\"col_item\" data-stkbar_id=\"" + invdet[ln]['stkbar_id'] + "\" data-cc=\"" + invdet[ln]['inc_cost'] + "\" tag=\"" + invdet[ln]['stkbar'] + "\" class=\"label-cell\">" + itemlink + "</td>\n" +
+                " <td id=\"col_qty\" class=\"numeric-cell\">" + invdet[ln]['inc_qty'] + "</td>\n" +
+                " <td id=\"col_price\" class=\"numeric-cell\">" + invdet[ln]['inc_price'] + "</td>\n" +
+                " <td id=\"col_total\" class=\"numeric-cell\">" + total + "</td>\n" +
+                " <td class=\"actions-cell\">\n" +
+                "   <a class=\"link icon-only\">\n" +
+                "     <i class=\"icon f7-icons ios-only color-red\" onclick=\"btnRemove('#row" + invline + "')\">trash</i>\n" +
+                "     <i class=\"icon material-icons md-only color-red\" onclick=\"btnRemove('#row" + invline + "','" +
+                invoicetype + "')\">delete</i>\n" +
+                "   </a>\n" +
+                " </td>\n" +
+                "</tr>";
+            } else {
+              IsUploaded = invdet[ln]['IsUploaded']
+              $$("#cbocustomer").val(invdet[ln]['client_id']);
+              $$("#cbocustomer").change();
+              $$("#txtInvoiceDescription").val(invdet[ln]['description']);
+            }
+            $$('#tblbody').append($$(rowHTML));
+            ic += 1;
+          };
+
+          if (IsUploaded === true) {
+            $$("#buttonSave").remove();
+            $$("#clearbutton").remove();
+            $$("#addbutton").remove();
+            $$("#cubebutton").remove();
+            $$("#groupbutton").remove();
+            $$("#buttonSaveAndPrint").remove(); // no need for save and print button when print exists
+          } else {
+            $$("#lblwarehouse").append("&nbsp;<span class=\"badge color-red\">Edit</span>")
+          }
+          refreshTotals(invoicetype);
+        } else {
+          // insert mode
+          $$("#buttonPrint").remove(); // no need for print button in insert mode because save and print
+        }
+
+        $$('.stocksearch').on('sheet:opened', function (e, popup) {
+          //console.log($$("#stocksheetTitle").html());
+
+          if ($$("#stocksheetTitle").text() == "Add Item") {
+            // Reseting items when new
+            $$("#selectedItem").val("nullItem");
+            $$("#selectedItem").change();
+            $$("#txtbarcode").val("");
+            $$("#txtqty").val("1"); // default is one
+            $$("#txtPrice").val("");
+          } else {
+
+          }
+        });
+        $$('.stocksearch').on('sheet:close', function (e, popup) {
+          // here we should add the item
+          //console.log(e);
+          //console.log(popup);
+          //var smartSelect = app.smartSelect.get('.smartSelectedItem');
+          //smartSelect.close();
+
+        });
+      },
+      pageInit: function (page) {
+
+
+        console.log('page Init');
+
+        allcustomerlist = this.$route.context.customerlist;
+        allcustomerlist1 = allcustomerlist;
+        allinvparentlist = this.$route.context.invparentlist;
+        allinvparentlist1 = allinvparentlist;
+        //console.log(allcustomerlist[0]['acname']);
+        console.log('finish');
+
+
+        //var swiper = app.swiper.get('.swiper-container');
+        //var swiper = $$(".swiper-container");
+        //console.log(swiper);
+        /* swiper.observe = true;
+         *
+
+         swiper.observeParents = true;*/
+
+
+        //swiper.init();
+
+
+      },
+      pageAfterIn: function (page) {
+        //console.log("pageAfterIn: ");
+        //console.log(this.$route.context.cubelist);
+        //cubelist: this.$route.context.cubelist;
+        // cubelist is an array filled with fav. cube items in routes.js before calling the invoice
+        //
+        //$$("#cubebutton").onClick() = assignButtons(this.$route.context.cubelist);
+        //document.getElementById("cubebutton").onclick = assignCubeButtons(this.$route.context.cubelist);
+        //document.getElementById("groupbutton").onclick = assignGroupButtons(this.$route.context.maingroups);
+
+
+        //document.getElementById('cubebutton').addEventListener('click', assignCubeButtons(this.$route.context.cubelist), false);
+        //document.getElementById('groupbutton').addEventListener('click', assignGroupButtons(this.$route.context.maingroups), false);
+
+        cubelist = this.$route.context.cubelist;
+        grouplist = this.$route.context.maingroups; // only the main group
+        allgrouplist = this.$route.context.allgroups; // all the groups
+        stocklist = this.$route.context.stocklist;
+
+        $$('#cubebutton').on('click', function () {
+          //console.log(cubelist);
+          assignCubeButtons(cubelist);
+        });
+
+        $$('#groupbutton').on('click', function () {
+          //console.log("groupbutton onclick");
+          console.log(stocklist);
+          ListMainGroups(grouplist, allgrouplist, stocklist);
+        });
+
+
+
+
+
+
+      },
+      pageReinit: function (page) {
+        //console.log("pageReinit: assignCube");
+        //assignCubeButtons(this.$route.context.cubelist);
+        //document.getElementById("cubebutton").onclick = assignCubeButtons(this.$route.context.cubelist);
+
+        //document.getElementById("groupbutton").onclick = assignGroupButtons(this.$route.context.maingroups);
+      }
+    },
+  }
+
+
+
+</script>

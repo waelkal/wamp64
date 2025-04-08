@@ -1,0 +1,173 @@
+<!--suppress ALL -->
+<template>
+  <div class="page" data-name="customer_view">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title">{{customer.acname}}</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block-title">Customer information</div>
+      <div class="list no-hairlines-md">
+        <ul>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Customer Name</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtName" placeholder="Name" value="{{customer.acname}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Firm</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtFirm" placeholder="Firm" value="{{customer.Firm}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Region</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtregion" placeholder="" value="{{customer.region}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Account Number</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtacnbr" placeholder="" value="{{customer.acnbr}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Business Mobile</div>
+                <div class="item-input-wrap">
+                  <!--<input type="text" id="txtBusinessMobile" placeholder="" value="{{customer.BusinessMobile}}"/>-->
+                  <a class="link external" href="tel:{{customer.BusinessMobile}}">{{customer.BusinessMobile}}</a>
+                  <a class="link external" href="https://wa.me/{{customer.BusinessMobile}}">WhatsApp</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Business Phone</div>
+                <div class="item-input-wrap">
+                  <!-- <input type="text" id="txtBusinessPhone" placeholder="" value="{{customer.BusinessPhone1}}"/>-->
+                  <a class="link external" href="tel:{{customer.BusinessPhone1}}">{{customer.BusinessPhone1}}</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">VAT ID</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtVatID" placeholder="" value="{{customer.VatID}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Cat Name</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtCatName" placeholder="" value="{{customer.CatName}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+       
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Discount %</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtcustdisc" placeholder="" value="{{customer.custdisc}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Business Address</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtBusinessAddress" placeholder="" value="{{customer.BusinessAddress}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">type</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txttype" placeholder="" value="{{customer.type}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Balance</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtBalance" placeholder="" value="{{customer.balanceLL}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+
+
+        </ul>
+      </div>
+      <div id="map"></div>
+
+    </div>
+  </div>
+</template>
+<script>
+  return {
+    on: {
+      pageAfterIn: function(e, page) {
+        //console.log('pageAfterIn', page);
+        var currentcustomer = this.$route.context;
+        var flat = parseFloat(currentcustomer["customer"]["lat"]);
+        var flng = parseFloat(currentcustomer["customer"]["lng"]);
+        if (isNaN(flat) || isNaN(flng)) {
+            return;
+        }
+        var uluru = {lat: flat, lng: flng};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(document.getElementById('map'), {zoom: 15, center: uluru, zoomControl: true});
+        var marker = new google.maps.Marker({position: uluru, map: map});
+      },
+    }
+
+  }
+</script>
+

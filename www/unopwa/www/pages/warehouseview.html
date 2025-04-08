@@ -1,0 +1,61 @@
+<!--suppress ALL -->
+<template>
+  <div class="page" data-name="warehouse_view">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title">{{warehouse.whname}}</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block-title">Warehouse information</div>
+      <div class="list no-hairlines-md">
+        <ul>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Warehouse Name</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtName" placeholder="Name" value="{{warehouse.whname}}"/>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Warehouse Code</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtwarehouse" placeholder="Firm" value="{{warehouse.whcode}}"/>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Warehouse Guid</div>
+                <div class="item-input-wrap">
+                  <input type="text" id="txtwarehid" placeholder="" value="{{warehouse.warehid}}"/>
+                </div>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+
+    </div>
+  </div>
+</template>
+<script>
+  return {
+  }
+</script>
+

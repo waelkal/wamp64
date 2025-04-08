@@ -1,0 +1,180 @@
+/* Your app styles here */
+
+
+#map {
+  height: 400px;  /* The height is 400 pixels */
+  width: 100%;  /* The width is the width of the web page */
+}
+
+
+#mapfull {
+  height: 100%;  /* The height is 400 pixels */
+  width: 100%;  /* The width is the width of the web page */
+}
+
+#interactive.viewport {position: relative; width: 50%; height: auto; overflow: hidden; text-align: center;}
+#interactive.viewport > canvas, #interactive.viewport > video {max-width: 50%;width: 50%;}
+canvas.drawing, canvas.drawingBuffer {position: absolute; left: 0; top: 0;}
+
+
+
+
+.ios .tabbar-labels .tab-link:not(.tab-link-active) .icon-ios-fill {
+  display: none;
+}
+.ios .tabbar-labels .tab-link.tab-link-active .icon:not(.icon-ios-fill) {
+  display: none;
+}
+
+.size-22 { font-size: 22px;  margin-right: 5px; }
+.size-25 { font-size: 25px; margin-right: 5px; margin-top: 0px; }
+.size-29 { font-size: 29px; margin-right: 5px; }
+.size-50 { font-size: 50px; margin-right: 5px; }
+
+.button-big2 {
+  font-size: 15px;
+  height: 80px;
+  margin-bottom: 2px;
+  background: #ffffff;
+}
+
+
+.button-swipe {
+  font-size: 20px;
+  height: 150px;
+  width: 150px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  background: #ffffff;
+}
+
+
+.colMenu {
+  background: #f9f9f9;
+  text-align: center;
+  color: #000;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 2px;
+  font-size: 11px;
+  height: 70px;
+}
+
+
+.colswipe {
+  background: #f9f9f9;
+  text-align: center;
+  color: #000;
+  border: 1px solid #ddd;
+  padding: 3px;
+  margin: 1px;
+  font-size: 14px;
+  height: 91px;
+  width: 90px;
+}
+
+
+.buttonSw {
+  text-decoration: none;
+  text-align: center;
+  /*display: block;*/
+  /*background-color: #46000D;*/
+  height: 90px;
+  width: 90px;
+  padding: 0 10px;
+  margin: 0;
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
+  cursor: pointer;
+  outline: 0;
+  /*-webkit-box-sizing: border-box;*/
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-radius: 10px;
+  /*-webkit-transition-duration: 200ms;
+  transition-duration: 200ms;*/
+
+}
+
+
+.demo-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.demo-swiper-cube {
+  width: 95%;
+  height: 95%;
+  top: 4%;
+}
+
+
+.demo-swiper .swiper-slide,
+.demo-swiper-multiple .swiper-slide {
+  font-size: 25px;
+  font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background: #fff;
+  color: #000;
+}
+
+
+
+.badgeOrder {
+  position: absolute;
+  z-index: 998;
+}
+
+
+
+
+/*for print testing*/
+#invoice-POS {
+  box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+  padding: 1mm;
+  margin: 0 auto;
+  width: 60mm;
+  visibility: hidden;
+}
+
+/*For print and save in invoice*/
+#invoicePOS {
+  padding: 0px;
+  margin: 0px;
+  width: 70mm;
+  visibility: hidden; 
+}
+
+#main-content h6 {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+/*for centering numeric value in invoice*/
+.tb_invoice_center {
+  text-align: right;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+.tb_invoice_right {
+  text-align: right; 
+}
+
+.upperborder {
+  border-top: 1px solid;
+}

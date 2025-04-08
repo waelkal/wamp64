@@ -1,0 +1,73 @@
+<!--suppress ALL -->
+<template>
+  <div class="page">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title">favorite item {{buttonID}}</div>
+      </div>
+    </div>
+    <form data-search-container=".search-list" data-search-in=".item-title" class="searchbar searchbar-init">
+      <div class="searchbar-inner">
+        <div class="searchbar-input-wrap">
+          <input type="search" placeholder="Search or barcode scan">
+          <i class="searchbar-icon"></i>
+          <span class="input-clear-button"></span>
+        </div>
+        <span class="searchbar-disable-button">Cancel</span>
+      </div>
+    </form>
+    <div class="page-content">
+      <div class="list simple-list searchbar-not-found">
+        <ul>
+          <li>Nothing found</li>
+        </ul>
+      </div>
+      <div class="list search-list searchbar-found">
+        <ul>
+          {{#each stocklist}}
+          <li>
+            <!--<a href="/customerview/{{js 'return JSON.stringify(this)'}}" class="item-link item-content">-->
+            <!--<a href="#" @click="customerview('{{this}}')" class="item-link item-content">-->
+            <a href="/stockview/{{this.stkbar}}/" class="item-link item-content">
+              <div class="item-inner">
+                <div class="item-title">
+                  <!-- Item header, must be first child of item-title -->
+                  <div class="item-header"></div>
+                  {{this.stkbar_name}}
+                  {{#if this.stkbar_price}}
+                  <span class="badge color-blue">{{this.stkbar_price}}</span>
+                  {{/if}}
+                  <!-- Item footer, must be last child of item-title -->
+                  <div class="item-footer">{{this.stkbar}}</div>
+                </div>
+              </div>
+            </a>
+          </li>
+          {{/each}}
+        </ul>
+        <div class="block block-strong">
+          <p class="row">
+            <!--@click="SaveSettings"-->
+            <a href="#" class="col button button-fill" >Save</a>
+          </p>
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</template>
+<script>
+  return {
+  }
+</script>
+
+

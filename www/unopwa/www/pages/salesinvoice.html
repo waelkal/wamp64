@@ -1,0 +1,898 @@
+<!--suppress ALL -->
+<template>
+  <div class="page" data-name="salesinvoice">
+
+    <!--Back button-->
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a  id="backButton"  @click="back()">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div id="lblwarehouse" tag="{{mysettings.warehid}}" class="title">{{invtype}} Invoice Wh:{{mysettings.whcode}}</div>
+      </div>
+    </div>
+
+
+    <div class="page-content">
+
+      <div class="popup popup-tablet-fullscreen smart-popup-cube">
+
+        <div class="navbar">
+          <div class="navbar-inner sliding">
+            <div class="left-center">
+              <span id="cubeTitle" class="link popup-close" href="#">&nbsp;Close Cube</span>
+            </div>
+          </div>
+        </div>
+
+        <!--swiper-init-->
+        <!--data-swiper="{'observer':'true', 'observeParents':'true'}"-->
+        <!--data-auto-height="true"-->
+        <div data-effect="cube" class="swiper-container swiper-init demo-swiper demo-swiper-cube"
+             data-observer="true" data-observe-parents="true">
+
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="block">
+                <div class="row">
+                  <div class="colswipe"><button ID="Item1" style="background:#ffd70a" class="buttonSw">Item1</button></div>
+                  <div class="colswipe"><button ID="Item2" style="background:#d2ff01" class="buttonSw">Item2</button></div>
+                  <div class="colswipe"><button ID="Item3" style="background:#05fffa" class="buttonSw">Item3</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item4" style="background:#f4c0ff" class="buttonSw">Item4</button></div>
+                  <div class="colswipe"><button ID="Item5" style="background:#e3d7ff" class="buttonSw">Item5</button></div>
+                  <div class="colswipe"><button ID="Item6" style="background:#d3fffa" class="buttonSw">Item6</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item7" style="background:#f1ffce" class="buttonSw">Item7</button></div>
+                  <div class="colswipe"><button ID="Item8" style="background:#aff1ff" class="buttonSw">Item8</button></div>
+                  <div class="colswipe"><button ID="Item9" style="background:#d7e1ff" class="buttonSw">Item9</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item10" style="background:#f1ffce" class="buttonSw">Item10</button></div>
+                  <div class="colswipe"><button ID="Item11" style="background:#d7ffdf" class="buttonSw">Item11</button></div>
+                  <div class="colswipe"><button ID="Item12" style="background:#d7e1ff" class="buttonSw">Item12</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item13" style="background:#f1ffce" class="buttonSw">Item13</button></div>
+                  <div class="colswipe"><button ID="Item14" style="background:#daffec" class="buttonSw">Item14</button></div>
+                  <div class="colswipe"><button ID="Item15" style="background:#ffc0ff" class="buttonSw">Item15</button></div>
+                </div>
+
+              </div>
+            </div>
+            <div class="swiper-slide">
+
+              <div class="block">
+
+                <div class="row">
+                  <div class="colswipe"><button ID="Item16" style="background:#baff93" class="buttonSw">Item16</button></div>
+                  <div class="colswipe"><button ID="Item17" style="background:#b9ecff" class="buttonSw">Item17</button></div>
+                  <div class="colswipe"><button ID="Item18" style="background:#15ff9c" class="buttonSw">Item18</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item19" style="background:#2cf3ff" class="buttonSw">Item19</button></div>
+                  <div class="colswipe"><button ID="Item20" style="background:#c0fff1" class="buttonSw">Item20</button></div>
+                  <div class="colswipe"><button ID="Item21" style="background:#d3fffa" class="buttonSw">Item21</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item22" style="background:#f1ffce" class="buttonSw">Item22</button></div>
+                  <div class="colswipe"><button ID="Item23" style="background:#ffa186" class="buttonSw">Item23</button></div>
+                  <div class="colswipe"><button ID="Item24" style="background:#fbdbff" class="buttonSw">Item24</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item25" style="background:#ffd643" class="buttonSw">Item25</button></div>
+                  <div class="colswipe"><button ID="Item26" style="background:#d4ff9c" class="buttonSw">Item26</button></div>
+                  <div class="colswipe"><button ID="Item27" style="background:#ecffb4" class="buttonSw">Item27</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item28" style="background:#aff1ff" class="buttonSw">Item28</button></div>
+                  <div class="colswipe"><button ID="Item29" style="background:#daffec" class="buttonSw">Item29</button></div>
+                  <div class="colswipe"><button ID="Item30" style="background:#67fff0" class="buttonSw">Item30</button></div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="swiper-slide">
+
+              <div class="block">
+
+                <div class="row">
+                  <div class="colswipe"><button ID="Item31" style="background:#ffcbe0" class="buttonSw">Item31</button></div>
+                  <div class="colswipe"><button ID="Item32" style="background:#dcffdd" class="buttonSw">Item32</button></div>
+                  <div class="colswipe"><button ID="Item33" style="background:#aaf5ff" class="buttonSw">Item33</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item34" style="background:#ffc8f1" class="buttonSw">Item34</button></div>
+                  <div class="colswipe"><button ID="Item35" style="background:#ffe6e6" class="buttonSw">Item35</button></div>
+                  <div class="colswipe"><button ID="Item36" style="background:#ffa796" class="buttonSw">Item36</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item37" style="background:#ecff99" class="buttonSw">Item37</button></div>
+                  <div class="colswipe"><button ID="Item38" style="background:#e9ffc6" class="buttonSw">Item38</button></div>
+                  <div class="colswipe"><button ID="Item39" style="background:#ffd230" class="buttonSw">Item39</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item40" style="background:#eaeeff" class="buttonSw">Item40</button></div>
+                  <div class="colswipe"><button ID="Item41" style="background:#d4ff9c" class="buttonSw">Item41</button></div>
+                  <div class="colswipe"><button ID="Item42" style="background:#ecffb4" class="buttonSw">Item42</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item43" style="background:#b2ffb5" class="buttonSw">Item43</button></div>
+                  <div class="colswipe"><button ID="Item44" style="background:#ffacee" class="buttonSw">Item44</button></div>
+                  <div class="colswipe"><button ID="Item45" style="background:#d5ff53" class="buttonSw">Item45</button></div>
+                </div>
+
+              </div>
+
+
+
+            </div>
+            <div class="swiper-slide">
+
+              <div class="block">
+
+                <div class="row">
+                  <div class="colswipe"><button ID="Item46" style="background:#2ce9ff" class="buttonSw">Item46</button></div>
+                  <div class="colswipe"><button ID="Item47" style="background:#efff9e" class="buttonSw">Item47</button></div>
+                  <div class="colswipe"><button ID="Item48" style="background:#ffeec9" class="buttonSw">Item48</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item49" style="background:#efffb6" class="buttonSw">Item49</button></div>
+                  <div class="colswipe"><button ID="Item50" style="background:#c5d4ff" class="buttonSw">Item50</button></div>
+                  <div class="colswipe"><button ID="Item51" style="background:#fff895" class="buttonSw">Item51</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item52" style="background:#ffd03b" class="buttonSw">Item52</button></div>
+                  <div class="colswipe"><button ID="Item53" style="background:#e9ffc6" class="buttonSw">Item53</button></div>
+                  <div class="colswipe"><button ID="Item54" style="background:#c2ffc1" class="buttonSw">Item54</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item55" style="background:#f3ffba" class="buttonSw">Item55</button></div>
+                  <div class="colswipe"><button ID="Item56" style="background:#d4ff9c" class="buttonSw">Item56</button></div>
+                  <div class="colswipe"><button ID="Item57" style="background:#ecffb4" class="buttonSw">Item57</button></div>
+                </div>
+                <div class="row">
+                  <div class="colswipe"><button ID="Item58" style="background:#b2ffb5" class="buttonSw">Item58</button></div>
+                  <div class="colswipe"><button ID="Item59" style="background:#ddffc1" class="buttonSw">Item59</button></div>
+                  <div class="colswipe"><button ID="Item60" style="background:#ffe8e6" class="buttonSw">Item60</button></div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!--stock search sheet modal-->
+      <div id="stocksheet" class="sheet-modal stocksearch">
+        <div class="view view-init" data-url="/empty/">
+          <!-- view-main view-init   -->
+          <div class="toolbar">
+            <div class="toolbar-inner">
+              <div id="stocksheetTitleLeft" class="left">
+                <a id="cancelStocksheetTitle" class="link sheet-close" href="#">Cancel</a>
+              </div>
+              <div class="right">
+                <a id="stocksheetTitle" onclick="btnUpdate()" class="link sheet-close" href="#">Add Item</a>
+                <!--<a id = "addbutton" href="#" onclick="btnSave()" class="button button-fill sheet-close" data-sheet=".stocksearch">Add Item</a>&nbsp-->
+              </div>
+            </div>
+          </div>
+          <div class="sheet-modal-inner">
+            <div class="block">
+              <div class="list no-hairlines-md">
+                <ul>
+                  <li>
+                    <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-input-wrap">
+                          <input type="text" id="txtbarcode" onchange="onchangeBarcode()" placeholder="barcode" value="" />
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <a class="item-link smart-select smart-select-init smartSelectedItem"
+                       data-close-on-select="true" data-open-in="popup"
+                       data-page-back-link-text="Done" data-searchbar="true" data-searchbar-placeholder="Item">
+
+                      <select id="selectedItem" onchange="onchangeItem(this)" name="selectedItem" >
+                        <option disabled selected value="nullItem">Select item</option>                       
+                        {{#if this.$route.context.replacement}}
+                        {{#each stocklist}}
+                        <option value="{{this.stkreplacebar}}" data-description="{{this.description}}" data-stk_origin="{{this.stk_origin}}" data-stk_vat="{{this.stk_vat}}" qty="{{this.qun_onhand}}" data-cc="{{this.stkbar_cost}}" data-stkbar_id="{{this.stkbar_id}}" tag="{{this.stkbar_price}}">{{this.stkbar_name}}</option>
+                        {{/each}}
+                        {{else}}
+                        {{#each stocklist}}
+                        <option value="{{this.stkbar}}" data-description="" data-stk_origin="{{this.stk_origin}}" data-stk_vat="{{this.stk_vat}}" qty="{{this.qun_onhand}}" data-cc="{{this.stkbar_cost}}" data-stkbar_id="{{this.stkbar_id}}" tag="{{this.stkbar_price}}">{{this.stkbar_name}} || Qty: {{this.qun_onhand}}</option>
+                        {{/each}}
+                        {{/if}}
+                      </select>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title">Stock Item</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col-25">
+                        <div class="item-content item-input">
+                          <div class="item-inner">
+                            <div class="item-input-wrap">
+                              <input type="number" id="txtqty" placeholder="Qty" value="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-25">
+                        <div class="item-content item-input">
+                          <div class="item-inner">
+                            <div class="item-input-wrap">
+                              <input type="number" id="txtPrice" placeholder="Price" value="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-50">
+                        <div class="item-content item-input">
+                          <div class="item-inner">
+                            <div class="item-input-wrap">
+                              <input type="number" id="txtqtyonhand" placeholder="QtyOnHand" value="" readonly/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--select customer readonly="readonly"-->
+      <div class="list no-hairlines-md">
+        <ul>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-input-wrap">
+                  <label for="cash">Is invoice cash?</label>
+                  <input type="checkbox" id="cash" name="cash" value="off">
+                  <input type="text" id="txtInvoiceDescription" placeholder="Description" value="" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Add Region-->
+
+          <li>
+            <a class="item-link smart-select smart-select-init" data-close-on-select="true"
+               data-page-back-link-text="Done" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="Search">
+              <select id="cboregion" name="region" onchange="
+
+                    var mySelect = document.getElementById('cbocustomer');
+                    for (var s in allcustomerlist1) {
+                    mySelect.remove(1);
+                    }
+                    mySelect.remove(0);
+
+                    var x = document.getElementById('cbocustomer');
+                    var o = document.createElement('option');
+                    o.text = 'select customer';
+                    o.value = '0';
+                    o.selected = true;
+                    o.disabled = true;
+                    x.add(o);
+
+                    for (var reg in allcustomerlist1) {
+                      if (allcustomerlist1[reg]['region'] === $$('#cboregion').val()) {
+                        var option = document.createElement('option');
+                        option.text = allcustomerlist1[reg]['acname'];
+                        option.value = allcustomerlist1[reg]['customerid'];
+                        //console.log(allcustomerlist1[reg]['acname'],allcustomerlist1[reg]['customerid']);
+                        x.add(option);
+                      }
+                    }
+
+  ">
+                <option disabled selected value="nullregion">Select Region</option>
+                {{#each allregion}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+              </select>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">Region</div>
+                </div>
+              </div>
+            </a>
+          </li>
+
+
+          <li>
+            <a class="item-link smart-select smart-select-init" data-close-on-select="true"
+               data-page-back-link-text="Done" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="Search">
+              <select id="cbocustomer" name="customer">
+                <option disabled selected value="nullcustomer">Select customer</option>
+                {{#each customerlist}}
+                <option value="{{this.customerid}}" data-disc="{{this.custdisc}}" >{{this.acname}}</option>
+                {{/each}}
+              </select>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">Customer</div>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="data-table data-table-init card">
+        <div class="card-header">
+          <!-- Table links/actions
+              assignButtons('{{$route.context.cubelist}}'
+      -->
+          <div class="data-table-links">
+            <a id="addbutton" href="#" onclick="addItem()" class="button button-fill sheet-open" data-sheet=".stocksearch">Add</a>&nbsp;
+            <!--<a id = "cubebutton" href="#"  class="button popup-open button-fill color-orange" data-popup=".smart-popup-cube">Cube</a>&nbsp;-->
+            <a id="groupbutton" href="#" class="button popup-open button-fill color-blue" data-popup=".smart-popup-cube">Groups</a>&nbsp;
+            <a id="clearbutton" href="#" class="button button-fill color-red" onclick="clearInvoice(1)">Clear</a>
+          </div>
+          <!-- <div class="data-table-actions">
+        <a class="link icon-only">
+          <i class="icon f7-icons ios-only">sort</i>
+          <i class="icon material-icons md-only">sort</i>
+        </a>
+        <a class="link icon-only">
+          <i class="icon f7-icons ios-only">more_vertical_round</i>
+          <i class="icon material-icons md-only">more_vert</i>
+        </a>
+      </div>-->
+        </div>
+
+        <!--Main INVOICE content
+    <th class="numeric-cell">Price</th>-->
+        <div class="card-content">
+          <table id="InvoiceTable">
+            <thead>
+              <tr>
+                <th class="label-cell">Item</th>
+                <th class="numeric-cell">Qty</th>
+                <th class="numeric-cell">Price</th>
+                <th class="numeric-cell">Disc%</th>
+                <th class="numeric-cell">Total</th>
+              </tr>
+            </thead>
+            <tbody id="tblbody">
+              <!-- <tr id="row1">
+            <td class="label-cell">MIRROR DOOR</td>
+            <td class="numeric-cell">5</td>
+            <td class="numeric-cell">3</td>
+            <td class="numeric-cell">15</td>
+            <td class="actions-cell">
+              <a class="link icon-only">
+                <i class="icon f7-icons ios-only color-red" @click="btnRemove('#row1')">trash</i>
+                <i class="icon material-icons md-only color-red" @click="btnRemove('#row1')">delete</i>
+              </a>
+            </td>
+          </tr>-->
+
+
+            </tbody>
+          </table>
+        </div>
+        <div class="data-table-footer">
+          <div class="data-table-rows-select">
+            <div class="item-label left">VAT(11%):</div>
+            <input type="text" id="txtTotalVAT" placeholder="0" value="" />
+            <div class="item-label left">Q.Totals:</div>
+            <input type="text" id="txtQTotals" placeholder="0" value="" />
+            <div class="item-label left">G.Totals:</div>
+            <input type="text" id="txtGTotals" placeholder="0" value="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="block block-strong">
+        <p class="row">
+          <!--@click="SaveSettings"-->
+          <a href="#" id="buttonSave" class="col button button-fill" @click="btnSave(0)">Save</a>
+          <a href="#" id="buttonSaveAndPrint" class="col button button-fill color-green" @click="btnSave(1)">Save & Print</a>
+          <a href="#" id="buttonPrint" class="col button button-fill color-blue" @click="btnPrint()">Print</a>
+        </p>
+
+      </div>
+      <!--Client  : {{$$("#cbocustomer").val()}}
+     Email   : {{mysettings.Email}}</br>
+    <div>  </div>
+  <!--<input type="text" id="Print_Date" placeholder="" value="">-->
+      <!--End Invoice <td style="text-align:center;"><h4>Price</h4></td>
+  <input type="text" id="Address" size="40" /><br />-->
+      <div id="invoicePOS" style="display:none" BORDER=0 CELLSPACING=0 CELLPADDING=0>
+
+        <center>        
+          <h5>
+            <img src={{mysettings.Logo}} alt="Company Logo" class="logo" id="logoImg" width="70" height="70"><br />
+            {{mysettings.CompanyName}}<br />
+            MOF#  : {{mysettings.VATID}}<br />
+            Address : {{mysettings.Address}}<br />
+            Phone   : {{mysettings.Phones}}
+            <input type="text" id="Print_InvNumber" /><br />
+            <input type="text" id="Print_Date" /><br />
+            <input type="text" id="clientID" /><br />
+            <input type="text" id="Vatid" /><br />
+            <input type="text" id="region" /><br />
+            <input type="text" id="Address" /><br />
+            <input type="text" id="Phone" /><br />
+          </h5>
+        </center>
+        <hr>
+        <table id="invoiceTable" BORDER=0 CELLSPACING=0 CELLPADDING=0>
+          <!--<tr>
+   <td style="text-align:left;">Item</td>
+    <td style="text-align:right;">Qty</td>
+    <td style="text-align:center;">Price</td>
+    <td style="text-align:center;">Total</td>
+  </tr>-->       
+          <tr>
+            <td style="text-align:left; width: 70%;">Item</td>
+            <td style="text-align:right; width: 10%;">Qty</td>
+            <td style="text-align:center; width: 10%;">Price</td>
+            <td style="text-align:center; width: 10%;">Total</td>
+          </tr>
+          <tr>
+            <td><hr></td>
+            <td><hr></td>
+            <td><hr></td>
+            <td><hr></td>
+          </tr>
+        </table>
+        <hr>
+        <p>{{mysettings.ReportFooter}}</p>
+      </div>
+    </div>
+   
+  </div>
+</template>
+<script>
+
+ 
+
+  var flat=0;
+  var flng =0;
+  var cubelist=[];
+  var stocklist = [];
+  var stocklist1 = [];
+  var pricelist = [];
+  var grouplist=[];
+  var allgrouplist = [];
+  var allcustomerlist = [];
+
+  function errorPosition(error) {
+    if (err.PERMISSION_DENIED === error.code) {
+
+    }
+  }
+
+  var optionsPosition = {
+    enableHighAccuracy: true,
+    timeout: 10000,
+    maximumAge: 0
+  };
+
+  function showPosition(position) {
+    flat = parseFloat(position.coords.latitude);
+    flng = parseFloat(position.coords.longitude);
+
+  }
+
+  
+
+  return {
+    data: function () {
+      var localsettings = {
+        whcode: localStorage.getItem("whcode"),
+        warehid: localStorage.getItem("warehid"),
+        Logo: localStorage.getItem('Logo'),
+        CompanyName: localStorage.getItem('CompanyName'),
+        VATID: localStorage.getItem('VATID'),
+        Address: localStorage.getItem('Address'),
+        Phones: localStorage.getItem('Phones'),
+        Email: localStorage.getItem('Email'),
+        ReportFooter: localStorage.getItem('ReportFooter'),
+      };
+      return {
+        mysettings: localsettings
+      }
+
+    },
+    methods: {
+
+      back: function ()  {
+        var userConfirmed = confirm('Are you sure you want to go back?');
+
+        if (userConfirmed) {
+          // If confirmed, navigate to the previous page or handle navigation
+          history.go();
+        }
+      },
+
+
+      btnSave: function (isPrint) {
+        // Set Pending Uploads to true
+
+        if (localStorage.getItem("warehid") == null || localStorage.getItem("warehid").length != 36) {
+          app.dialog.alert("Invalid warehouse id!!");
+          return false;
+        }
+
+
+        if (localStorage.getItem("Scenario") == null) {
+          app.dialog.alert("Invalid Scenario!");
+          return false;
+        } else {
+          if (localStorage.getItem("Scenario") == 'Scenario1' && localStorage.getItem("salesmanid") == null) {
+            app.dialog.alert("Invalid salesman id for Scenario1!");
+            return false;
+          }
+        }
+
+
+        const currentCustomer = $$("#cbocustomer").val();
+        if (currentCustomer === "nullcustomer") {
+          app.dialog.alert("please select customer!!");
+          return false;
+        }
+
+        var table = document.getElementById('InvoiceTable');
+        var rowLength = table.rows.length;
+        if (rowLength == 1) {
+          app.dialog.confirm('Please chose Items!');
+          return false;
+        }
+
+        
+        // Create temp invoice
+        var disc = getdisc(currentCustomer, allcustomerlist);
+        var counter_inv = getcounterinvoice(this.$route.context.counterlist, this.$route.context.invtype, localStorage.getItem("locationcode"));
+        counter_inv += 1;
+        var current_inv = refreshTotals(this.$route.context.invtype, disc, counter_inv);
+
+        if (localStorage.getItem('EnableGPSTracking') === '1' && navigator.geolocation) {
+          if (isNaN(flat) || isNaN(flng)) {
+            current_inv[0]['lat'] = flat;
+            current_inv[0]['lng'] = flng;
+          } else {
+            current_inv[0]['lat'] = 0;
+            current_inv[0]['lng'] = 0;
+          }
+        } else {
+          current_inv[0]['lat'] = 0;
+          current_inv[0]['lng'] = 0;
+        }
+
+        if (this.$route.context.invtype == 'SA') {
+          var qty = checkqty(current_inv, stocklist);
+          if (qty == 0) {
+            app.dialog.alert("Check qty for items in invoice!!");
+            return false;
+          }
+        }
+        var mainKey = current_inv[0]["inp_id"];      
+        
+        //var current_counter = refreshcounter(counter_inv, this.$route.context.invtype, localStorage.getItem("locationcode"));
+        updatelocalcounter(counter_inv, this.$route.context.invtype, this.$route.context.counterlist)
+        //var max_counter = getlocalcounter(this.$route.context.invtype);
+       
+
+        // check Qty on hand
+    
+        //update local stock qty
+        if (this.$route.context.invtype == 'SA' || this.$route.context.invtype == 'SR') {
+          UpdateLocalstock(current_inv, stocklist, this.$route.context.invtype);
+        }
+        if (this.$route.context.invtype == 'DM') {
+          UpdateDamagestock(current_inv, stocklist, this.$route.context.invtype);
+        }
+
+        const isEdit = this.$route.context.isEditInvoice;
+        const dbPromise = idb.open('unodbmobile', localStorage.getItem('CurrentDBVersion'));
+        var retval = "";
+
+        //console.log("saving invoice when edit");
+        if (isEdit === true) {
+          const invoiceKey = parseFloat(this.$route.context.invoiceKey);
+          SaveEditedInvoice(invoiceKey,current_inv); // Sending int PK with the current invoice (parent & Details)
+        } else {
+          // For Add new invoice
+          //Savecounter(current_counter, this.$route.context.invtype);
+          //deletestock(current_inv);
+          //UpdateLocalstock(current_inv);
+          dbPromise.then(db => {
+            const tx = db.transaction('invoice', 'readwrite');
+            const request = tx.objectStore('invoice').add(current_inv);          
+            request.then(mainId => {
+              //console.log("mainId: " + mainId);
+              localStorage.setItem("PendingUploads", "1"); // set it to true before upload
+              if (localStorage.getItem("UpdateDataToOnlineServer") === "1") {
+                //if (counter_inv != "") {
+                // mainId = counter_inv;
+                //}
+                saveDataOnline(mainId, current_inv);
+                //saveonlinecounter(current_counter);
+                //savestockvalueonline(mainId, current_inv);
+              }
+              if (isPrint === 1) {
+                //mainId = counter_inv + mainId -1;
+                printInvoice(counter_inv, current_inv);
+              }           
+              clearInvoice(0);
+          
+              //verbose 0 = no confirmation message
+              })
+          
+          });
+          //window.location.reload();
+        }
+
+      },
+      btnPrint: function () {
+        //var trp_desc = $$("#txtInvoiceDescription").val();
+        var currentCustomer = $$("#cbocustomer").val();
+        var disc = getdisc(currentCustomer, allcustomerlist);
+        var counter = getcounterinvoice(this.$route.context.counterlist, this.$route.context.invtype, localStorage.getItem("locationcode"));
+        var current_inv = refreshTotals(this.$route.context.invtype, disc, counter);
+        //const invoiceKey = parseFloat(this.$route.context.invoiceKey);       
+        printInvoice(counter, current_inv);
+        //<a href="mybluetoothprint.scheme://https://unopwa.app/response.php?id=45">print</a>
+        $$("#buttonPrint").remove(); // remove print so that we don't have multiple rows
+      }
+    },
+    on: {
+      // each object key means same name event handler
+      pageMounted: function (page) {
+        invline=0;
+        var $$ = Dom7;
+        invoicetype = this.$route.context.invtype; //$route.context.invtype;   app.currentRoute.context.invtype
+
+        var IsUploaded;
+        // check if this an edited invoice
+        //console.log($$(".smartSelectedItem"));
+        //console.log($$(".smartSelectedItem").attr("data-close-on-select"));
+
+
+        if (localStorage.getItem('EnableGPSTracking') === '1' && navigator.geolocation) {
+          //console.log("GPS is on");
+          navigator.geolocation.getCurrentPosition(showPosition,errorPosition, optionsPosition);
+        }
+
+        const isEdit = this.$route.context.isEditInvoice;
+        const isPrint = this.$route.context.isPrintPreview;
+        if (isEdit === true ) {
+          // adding invoice lines
+          const invdet = this.$route.context.invoicelist;
+          var ic = 0;
+          for (var ln in invdet) {
+            if (ic > 0) {
+              //console.log(invdet[ln]['inc_qty']);
+              if (isPrint === false)  
+              {
+                var itemlink = "<a id = \"editbutton\" href=\"#\" " +
+                  "onclick=\"editItem('" + invdet[ln]['stkbar'] + "'," + invdet[ln]['inc_qty'] + "," + invdet[ln]['inc_price'] + "," + invdet[ln]['inc_vat'] + "," + invdet[ln]['inc_cost'] + " )\" class=\"link sheet-open\" data-sheet=\".stocksearch\">" + invdet[ln]['item'] + "</a>";
+
+
+              } else {
+                var itemlink =   invdet[ln]['item'];
+              }
+             
+             
+              console.log(itemlink)
+              var total = invdet[ln]['inc_qty'] * invdet[ln]['inc_price'];
+
+              var rowHTML = "<tr id=\"row" + invline + "\">\n" +
+                " <td id=\"col_item\" data-stkbar_id=\"" + invdet[ln]['stkbar_id'] + "\" data-stk_vat=\"" + invdet[ln]['inc_vat'] + "\" data-cc=\"" + invdet[ln]['inc_cost'] +  "\" tag=\"" + invdet[ln]['stkbar'] + "\" class=\"label-cell\">" + itemlink + "</td>\n" +
+                  " <td id=\"col_qty\" class=\"numeric-cell\">" + invdet[ln]['inc_qty'] + "</td>\n" +
+                  " <td id=\"col_price\" class=\"numeric-cell\">" + invdet[ln]['inc_price'] + "</td>\n" +
+                  " <td id=\"col_total\" class=\"numeric-cell\">" + total + "</td>\n" +
+                  " <td class=\"actions-cell\">\n" +
+                "   <a class=\"link icon-only\">\n" 
+             
+                + "     <i class=\"icon f7-icons ios-only color-red\" onclick=\"btnRemove('#row" + invline + "')\">trash</i>\n" +
+                  "     <i class=\"icon material-icons md-only color-red\" onclick=\"btnRemove('#row" + invline + "','" +
+                  invoicetype + "',true)\">delete</i>\n" 
+               
+                 + "   </a>\n" +
+                  " </td>\n" +
+                  "</tr>";
+            } else {
+              IsUploaded = invdet[ln]['IsUploaded']
+              $$("#cbocustomer").val(invdet[ln]['client_id']);
+              $$("#cbocustomer").change();
+              $$("#txtInvoiceDescription").val(invdet[ln]['description']);
+            }
+            $$('#tblbody').append($$(rowHTML));
+            ic+=1;
+          };
+
+          if (IsUploaded === true) {
+            $$("#buttonSave").remove();
+            $$("#clearbutton").remove();
+            $$("#addbutton").remove();
+            $$("#cubebutton").remove();
+            $$("#groupbutton").remove();
+            $$("#buttonSaveAndPrint").remove(); // no need for save and print button when print exists
+          } else {
+            $$("#buttonSaveAndPrint").remove();
+            $$("#buttonSave").remove();
+            $$("#lblwarehouse").append("&nbsp;<span class=\"badge color-red\">Edit</span>")
+          }
+          //var disc = getdisc(currentCustomer, allcustomerlist);
+          refreshTotals(invoicetype,disc);
+        } else {
+          // insert mode
+          $$("#buttonPrint").remove(); // no need for print button in insert mode because save and print
+        }
+
+        $$('.stocksearch').on('sheet:opened', function (e, popup) {
+          //console.log($$("#stocksheetTitle").html());
+
+          if ($$("#stocksheetTitle").text() == "Add Item") {
+            // Reseting items when new
+            console.log(stocklist1);
+            $$("#selectedItem").val("nullItem");
+            $$("#selectedItem").change();
+            $$("#txtbarcode").val("");
+            $$("#txtqty").val("1"); // default is one
+            $$("#txtPrice").val("");
+            $$("#txtqtyonhand").val("");
+          } else {
+
+          }
+        });
+        $$('.stocksearch').on('sheet:close', function (e, popup) {
+          // here we should add the item
+          //console.log(e);
+          //console.log(popup);
+          //var smartSelect = app.smartSelect.get('.smartSelectedItem');
+          //smartSelect.close();
+
+        });
+      },
+      pageInit: function (page) {
+
+
+        console.log('page Init');
+
+        allcustomerlist = this.$route.context.customerlist;
+        allcustomerlist1 = allcustomerlist;
+        //console.log(allcustomerlist[0]['acname']);
+        console.log('finish');
+
+        var currentCustomer = $$("#cbocustomer").val();
+        var categoryID = Getcategoryid(currentCustomer, allcustomerlist);
+        //var mainKey = categoryID[0]["StockPricesCatID"]; 
+        var stocklist1 = Getpricelist(stocklist, pricelist, categoryID);
+
+        //var swiper = app.swiper.get('.swiper-container');
+        //var swiper = $$(".swiper-container");
+        //console.log(swiper);
+        /* swiper.observe = true;
+         * 
+
+         swiper.observeParents = true;*/
+
+
+        //swiper.init();
+
+
+      },
+      pageAfterIn: function (page) {
+        //console.log("pageAfterIn: ");
+        //console.log(this.$route.context.cubelist);
+        //cubelist: this.$route.context.cubelist;
+        // cubelist is an array filled with fav. cube items in routes.js before calling the invoice
+        //
+        //$$("#cubebutton").onClick() = assignButtons(this.$route.context.cubelist);
+        //document.getElementById("cubebutton").onclick = assignCubeButtons(this.$route.context.cubelist);
+        //document.getElementById("groupbutton").onclick = assignGroupButtons(this.$route.context.maingroups);
+
+
+        //document.getElementById('cubebutton').addEventListener('click', assignCubeButtons(this.$route.context.cubelist), false);
+        //document.getElementById('groupbutton').addEventListener('click', assignGroupButtons(this.$route.context.maingroups), false);
+
+        cubelist = this.$route.context.cubelist;
+        grouplist = this.$route.context.maingroups; // only the main group
+        allgrouplist= this.$route.context.allgroups; // all the groups
+        stocklist = this.$route.context.stocklist;
+        pricelist = this.$route.context.pricelist;
+        
+        var currentCustomer = $$("#cbocustomer").val();
+        
+        var categoryID = Getcategoryid(currentCustomer, allcustomerlist);
+        //var mainKey = categoryID[0]["StockPricesCatID"]; 
+        var stocklist1 = Getpricelist(stocklist, pricelist, categoryID);
+
+        $$('#addbutton').on('click', function() {
+          var currentCustomer = $$("#cbocustomer").val();
+          var categoryID = Getcategoryid(currentCustomer, allcustomerlist);
+          var stocklist1 = Getpricelist(stocklist, pricelist, categoryID);
+          addItem();
+
+        });
+        $$('#cubebutton').on('click', function () {
+          //console.log(cubelist);
+          assignCubeButtons(cubelist);
+        });
+
+        $$('#groupbutton').on('click', function () {
+          //console.log("groupbutton onclick");
+          console.log(stocklist1);
+          var currentCustomer = $$("#cbocustomer").val();
+          var categoryID = Getcategoryid(currentCustomer,
+          );
+          var stocklist1 = Getpricelist(stocklist, pricelist, categoryID);
+          ListMainGroups(grouplist, allgrouplist, stocklist1);
+        });
+
+
+
+
+
+
+      },
+      pageReinit: function (page) {
+        //console.log("pageReinit: assignCube");
+        //assignCubeButtons(this.$route.context.cubelist);
+        //document.getElementById("cubebutton").onclick = assignCubeButtons(this.$route.context.cubelist);
+
+        //document.getElementById("groupbutton").onclick = assignGroupButtons(this.$route.context.maingroups);
+      }
+    },
+    
+  }
+
+  // Add a confirmation dialog when the user tries to leave the page
+  //window.addEventListener("beforeunload", function (event) {
+  //  // Standard message
+  //  const message = 'Are you sure you want to leave?';
+  //  event.returnValue = message; // For most browsers
+  //  return message; // For some older browsers
+  //});
+
+  //// Optional: Handle custom back button actions
+  document.addEventListener("DOMContentLoaded", function () {
+    var backButton = document.getElementById("backButton");
+
+    backButton.addEventListener("click", function (event) {
+      // Prevent default action
+      event.preventDefault();
+
+      // Show confirmation dialog
+      var userConfirmed = confirm('Are you sure you want to go back?');
+
+      if (userConfirmed) {
+        // If confirmed, navigate to the previous page or handle navigation
+        window.history.back();
+      }
+      // If not confirmed, do nothing (stay on the current page)
+    });
+  });
+
+ 
+
+
+</script>

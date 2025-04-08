@@ -1,0 +1,4 @@
+[06-Jan-2021 07:13:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_real_escape_string() in /home/mazenpwa/public_html/api/sinvoice.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/mazenpwa/public_html/api/sinvoice.php on line 38
